@@ -1,0 +1,39 @@
+#work flow control
+RUN_ENKF=false
+CLEAN=false
+
+#experiment design
+EXP_NAME=nextsim_ens_run
+DATE_START=201912230000
+DATE_END=201912240000
+DATE_CYCLE_START=201912240000
+DATE_CYCLE_END=201912240000
+
+#directories
+WORK_DIR=$USERWORK/$EXP_NAME
+SCRIPT_DIR=$HOME/code/nextsim-dart
+CODE_DIR=$HOME/code
+DATA_DIR=$HOME/data
+
+#domain setup
+
+#time control: unit=minutes
+CYCLE_PERIOD=1440
+OUTPUT_INTERVAL=180
+FORECAST_MINUTES=1440
+
+#physics
+
+#ENKF options
+NUM_ENS=8
+
+#data sources
+
+#data thinning coef
+
+#radius of influence (km for HROI, # of layers for VROI)
+
+#CPU usage
+HOSTPPN=32
+HOSTTYPE=betzy
+HOSTACCOUNT=nn2993k
