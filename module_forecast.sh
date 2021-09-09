@@ -35,7 +35,7 @@ for m in `seq 1 $NUM_ENS`; do
     source $HOME/nextsim.intel.src
     export NEXTSIM_DATA_DIR=`pwd`/data
     $SCRIPT_DIR/make_nextsim_config.sh > nextsim.cfg
-    $SCRIPT_DIR/job_submit.sh 1 32 $((ncnt-1)) $CODE_DIR/nextsim/model/bin/nextsim.exec --config-files=nextsim.cfg &
+    $SCRIPT_DIR/job_submit.sh 1 32 $ncnt $CODE_DIR/nextsim/model/bin/nextsim.exec --config-files=nextsim.cfg &
     cd ..
 
     ncnt=$((ncnt+1))

@@ -2,7 +2,7 @@
 #SBATCH --account=nn2993k
 #SBATCH --job-name=run_cycle
 #SBATCH --time=0-00:30:00
-#SBATCH --nodes=4
+#SBATCH --nodes=2
 #SBATCH --ntasks-per-node=32
 #SBATCH --qos=devel
 
@@ -13,7 +13,6 @@ source ~/nextsim.intel.src
 export SCRIPT_DIR=$HOME/code/nextsim-dart
 cd $SCRIPT_DIR
 export CONFIG_FILE=$SCRIPT_DIR/config/default
-
 . $CONFIG_FILE
 . util.sh
 
@@ -28,7 +27,7 @@ while [[ $NEXTDATE -le $DATE_CYCLE_END ]]; do  #CYCLE LOOP
 
     echo "----------------------------------------------------------------------"
     echo "CURRENT CYCLE: $DATE => $NEXTDATE"
-    mkdir -p {run,ens,diag,obs}/$DATE
+    mkdir -p $WORK_DIR/{run,ens,diag,obs}/$DATE
 
     #CLEAR ERROR TAGS
     for d in `ls run/$DATE/`; do

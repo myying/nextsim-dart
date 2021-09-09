@@ -8,8 +8,10 @@ exe_command=$@
 
 
 ###this works on Betzy
-srun -N $nnodes -n $ncpus -r $offset_node $exe_command
+srun -N $nnodes -n $ncpus -r $offset_node --mpi=pmi2 $exe_command
 
+
+###The manual solution, just in case:
 #function get_nodefile {
 #    job_nodelist=$1
 #    nodefile=''
@@ -29,7 +31,6 @@ srun -N $nnodes -n $ncpus -r $offset_node $exe_command
 #    fi
 #    echo $nodefile |tr ' ' '\n'
 #}
-
 #get_nodefile $SLURM_JOB_NODELIST |head -n $((offset_node+$nnodes)) |tail -n $nnodes > nodefile
 #mpirun -np $ncpus -machinefile nodefile $exe_command
 
